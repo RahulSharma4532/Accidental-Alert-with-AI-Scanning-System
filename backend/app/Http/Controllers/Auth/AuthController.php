@@ -250,10 +250,18 @@ class AuthController extends Controller
             $user = User::create([
                 'name' => $name,
                 'email' => $email,
-                'phone' => 'G-' . substr($googleId, 0, 8),
-                'password' => Hash::make(Str::random(16)),
-                'role' => 'victim',
+                'google_id' => $googleId,
+                'avatar' => $avatar,
+                'role' => 'user',
             ]);
+        } else {
+            // Update existing user with google id if not present
+            if (!$user->google_id) {
+                $user->update([
+                    'google_id' => $googleId,
+                    'avatar' => $avatar ?? $user->avatar,
+                ]);
+            }
         }
 
         $token = $user->createToken('auth_token')->plainTextToken;
