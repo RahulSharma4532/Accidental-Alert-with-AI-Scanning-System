@@ -299,43 +299,20 @@ if (res.success) {
 
             {/* Google Sign-In Button */}
             {googleClientId ? (
-              <div className="space-y-4">
+              <div className="mt-8">
                 <div id="google-signin-btn" className="w-full flex justify-center"></div>
-                <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[10px] text-emerald-400 text-left font-semibold">
-                  <span className="inline-block w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping mr-2"></span>
+                <div className="mt-4 p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[10px] text-emerald-400 text-left font-semibold">
+                  <span className="inline-block w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse mr-2"></span>
                   Active Google OIDC Gateway verified.
                 </div>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="mt-8">
                 <button 
                   type="button" 
-                  onClick={() => setShowGoogleModal(true)} 
-                  className="w-full py-3.5 bg-zinc-900 hover:bg-zinc-850 text-zinc-300 hover:text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all border border-zinc-800 flex justify-center items-center gap-3 active:scale-[0.98] cursor-pointer"
+                  disabled
+                  className="w-full premium-btn-secondary bg-zinc-900/50 text-zinc-500 cursor-not-allowed border border-zinc-800 flex items-center justify-center gap-2 py-3.5 rounded-xl transition-all"
                 >
-                  <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="matrix(1, 0, 0, 1, 0, 0)">
-                      <path d="M21.35,11.1H12v2.7h5.38C16.88,15.22,14.68,16.5,12,16.5c-3.03,0-5.61-2.08-6.53-4.88c-0.24-0.72-0.38-1.5-0.38-2.3 c0-0.8,0.14-1.58,0.38-2.3c0.92-2.8,3.5-4.88,6.53-4.88c1.64,0,3.12,0.61,4.28,1.62l3.02-3.02C17.38,1.4,14.88,0.5,12,0.5 C7.02,0.5,2.7,3.37,0.5,7.56c-0.3,0.57-0.56,1.18-0.77,1.8C-0.51,10.22-0.51,11.12-0.27,12c0.21,0.62,0.47,1.23,0.77,1.8 c2.2,4.19,6.52,7.06,11.5,7.06c2.93,0,5.65-0.95,7.74-2.58l-3.32-2.58c-1.12,0.75-2.56,1.21-4.42,1.21c-3.03,0-5.61-2.08-6.53-4.88 c-0.24-0.72-0.38-1.5-0.38-2.3c0-0.8,0.14-1.58,0.38-2.3c0.92-2.8,3.5-4.88,6.53-4.88c1.64,0,3.12,0.61,4.28,1.62l3.02-3.02 C17.38,1.4,14.88,0.5,12,0.5c-0.64,0-1.27,0.05-1.9,0.15l2.45,2.45c1.44-0.08,2.78,0.4,3.77,1.27l3.02-3.02 C17.38,1.4,14.88,0.5,12,0.5c-4.98,0-9.3,2.87-11.5,7.06L3,9.88c0.92-2.8,3.5-4.88,6.53-4.88c1.64,0,3.12,0.61,4.28,1.62 l3.02-3.02C17.38,1.4,14.88,0.5,12,0.5c-0.64,0-1.27,0.05-1.9,0.15l2.45,2.45c1.44-0.08,2.78,0.4,3.77,1.27l3.02-3.02 C17.38,1.4,14.88,0.5,12,0.5" fill="none"/>
-                      <path d="M23.52,12.27c0-0.81-0.07-1.6-0.2-2.36H12v4.47h6.46c-0.28,1.47-1.11,2.71-2.36,3.55v2.95h3.82 C22.16,18.4,23.52,15.6,23.52,12.27z" fill="#4285F4"/>
-                      <path d="M12,24c3.24,0,5.97-1.08,7.96-2.91l-3.82-2.95c-1.06,0.71-2.42,1.13-4.14,1.13c-3.18,0-5.88-2.15-6.84-5.05H1.24v3.05 C3.22,21.28,7.31,24,12,24z" fill="#34A853"/>
-                      <path d="M5.16,14.22c-0.25-0.75-0.39-1.55-0.39-2.37c0-0.82,0.14-1.62,0.39-2.37V6.43H1.24C0.45,8.02,0,9.8,0,11.75 c0,1.95,0.45,3.73,1.24,5.32L5.16,14.22z" fill="#FBBC05"/>
-                      <path d="M12,4.77c1.76,0,3.34,0.61,4.59,1.8l3.43-3.43C17.97,1.21,15.24,0,12,0C7.31,0,3.22,2.72,1.24,6.43l3.92,3.05 C6.12,6.92,8.82,4.77,12,4.77z" fill="#EA4335"/>
-                    </g>
-                  </svg>
-                  Sign in with Google
-                </button>
-                <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg text-[9px] text-amber-400 text-left leading-relaxed font-medium">
-                  ⚠️ Google OAuth clientId requires registration in the platform configuration. Click to invoke simulated provider accounts.
-                </div>
-              </div>
-            )}
-
-            {/* Google Accounts Chooser Modal */}
-            {showGoogleModal && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4">
-                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl w-full max-w-sm overflow-hidden shadow-2xl p-6 text-zinc-100 relative">
-                  <div className="flex justify-between items-center mb-6">
-                    <div className="flex items-center gap-3">
                   <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4 grayscale opacity-50" />
                   Sign in with Google (Loading...)
                 </button>
