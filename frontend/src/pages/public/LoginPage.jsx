@@ -277,23 +277,6 @@ if (res.success) {
                         placeholder="000000"
                       />
                     </div>
-                    {demoOtp && (
-                      <div className="mt-3 text-[10px] text-emerald-400 font-bold bg-emerald-500/5 border border-emerald-500/10 p-2.5 rounded-lg flex items-center justify-between">
-                        <span>Local verification OTP code:</span>
-                        <span className="font-mono bg-emerald-500 text-zinc-950 px-2 py-0.5 rounded font-black">{demoOtp}</span>
-                      </div>
-                    )}
-                    {otpSent && twilioConfigured && smsSent && (
-                      <div className="mt-3 p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-[10px] text-emerald-400 text-left font-semibold">
-                        <span className="inline-block w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping mr-2"></span>
-                        OTP Code Dispatched to Twilio Node.
-                      </div>
-                    )}
-                    {otpSent && !twilioConfigured && (
-                      <div className="mt-3 p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg text-[9px] text-amber-400 text-left leading-relaxed font-medium">
-                        ⚠️ Twilio SMS node is offline. Real-time phone dispatch requires active Twilio API credentials in the backend environment dossier.
-                      </div>
-                    )}
                     <button type="button" onClick={() => setOtpSent(false)} className="text-[10px] font-bold text-zinc-500 hover:text-white mt-3 inline-block transition-colors uppercase tracking-wider">Change mobile number?</button>
                   </motion.div>
                 )}
