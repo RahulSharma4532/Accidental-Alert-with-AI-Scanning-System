@@ -24,6 +24,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy existing application directory contents
 COPY . /var/www/html
 
+# Install dependencies
+RUN composer install --no-interaction --optimize-autoloader --no-dev
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
