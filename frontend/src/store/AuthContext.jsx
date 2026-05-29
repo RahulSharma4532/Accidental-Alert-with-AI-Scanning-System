@@ -55,6 +55,16 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       return { success: true, user: userData };
     } catch (error) {
+      // Demo Mode Fallback for Vercel
+      if (error.code === 'ERR_NETWORK' || !error.response) {
+        console.warn('Backend unreachable. Using Demo Mode.');
+        const role = email.includes('admin') ? 'super_admin' : (email.includes('insurer') ? 'insurer' : (email.includes('mediator') ? 'mediator' : 'policyholder'));
+        const demoUser = { id: 999, name: 'Demo User', email, role };
+        localStorage.setItem('token', 'demo_token_123');
+        setUser(demoUser);
+        setIsAuthenticated(true);
+        return { success: true, user: demoUser };
+      }
       return { success: false, error: error.response?.data?.message || 'Invalid credentials' };
     } finally {
       setLoading(false);
@@ -83,6 +93,11 @@ export const AuthProvider = ({ children }) => {
         sms_sent: response.data.sms_sent 
       };
     } catch (error) {
+      // Demo Mode Fallback for Vercel
+      if (error.code === 'ERR_NETWORK' || !error.response) {
+        console.warn('Backend unreachable. Using Demo Mode OTP: 123456');
+        return { success: true, otp: '123456', twilio_configured: false, sms_sent: false };
+      }
       return { success: false, error: error.response?.data?.message || 'Failed to send OTP' };
     } finally {
       setLoading(false);
@@ -99,6 +114,14 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
       return { success: true, user: userData };
     } catch (error) {
+      // Demo Mode Fallback for Vercel
+      if ((error.code === 'ERR_NETWORK' || !error.response) && otp === '123456') {
+        const demoUser = { id: 999, name: 'Demo Mobile User', phone, role: 'policyholder' };
+        localStorage.setItem('token', 'demo_token_123');
+        setUser(demoUser);
+        setIsAuthenticated(true);
+        return { success: true, user: demoUser };
+      }
       return { success: false, error: error.response?.data?.message || 'Invalid OTP' };
     } finally {
       setLoading(false);
