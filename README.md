@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://images.unsplash.com/photo-1549695627-2b7e12762a1f?auto=format&fit=crop&w=800&q=80" alt="AccidentAlert Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
+  <img src="https://th.bing.com/th/id/OIP.UdgwQdZRpOzPIToUH5qT_AHaEJ?w=326&h=183&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="AccidentAlert Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;" />
   
   <h1>🛡️ AccidentAlert | Smart Insurance & Emergency Platform</h1>
   <p><strong>Next-Generation Telematics, AI Damage Assessment, and Instant Insurance Settlement.</strong></p>
